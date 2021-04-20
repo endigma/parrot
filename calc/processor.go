@@ -3,17 +3,22 @@ package calc
 import (
 	"strings"
 
-	"gitcat.ca/endigma/parrot/utils"
-
 	"github.com/Knetic/govaluate"
 )
 
-func Process(args []string) interface{} {
-	expression, err := govaluate.NewEvaluableExpression(strings.Join(args, " "))
+var functions map[string]govaluate.ExpressionFunction = map[string]govaluate.ExpressionFunction{
+	"sqrt": func_sqrt,
+}
 
-	utils.CheckErr(err)
+func Process(args []string) (interface{}, error) {
+	expression, err := govaluate.NewEvaluableExpressionWithFunctions(strings.Join(args, " "), functions)
+	if err != nil {
+		return nil, err
+	}
+	result, err := expression.Evaluate(constants)
+	if err != nil {
+		return nil, err
+	}
 
-	result, err := expression.Evaluate(parameters)
-
-	return result
+	return result, nil
 }

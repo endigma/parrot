@@ -8,21 +8,23 @@ import (
 	"gitcat.ca/endigma/parrot/utils"
 )
 
-var parameters map[string]interface{} = make(map[string]interface{})
-
-var ans interface{} = 0
-
-func UpdateAns(a interface{}) {
-	parameters["ans"] = a
-}
+var constants map[string]interface{} = make(map[string]interface{})
 
 func init() {
-	jsonFile, err := os.Open("calc/constants.json")
+	jsonFile, err := os.Open("constants.json")
 
 	utils.CheckErr(err)
 
 	defer jsonFile.Close()
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	json.Unmarshal(byteValue, &parameters)
+	json.Unmarshal(byteValue, &constants)
+}
+
+func SetConstant(k string, v interface{}) {
+	constants[k] = v
+}
+
+func GetConstants() map[string]interface{} {
+	return constants
 }

@@ -7,7 +7,10 @@ import (
 )
 
 func Handle(c *ishell.Context) {
-	answer := calc.Process(c.Args)
-	c.Printf("\n = %v\n\n", answer)
-	calc.UpdateAns(answer)
+	answer, err := calc.Process(c.Args)
+	if err != nil {
+		c.Println(err)
+	}
+	c.Printf("\n = %v\n\n", color_green_bold.Sprintf("%v", answer))
+	calc.SetConstant("ans", answer)
 }
