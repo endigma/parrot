@@ -13,19 +13,19 @@ import (
 )
 
 func init() {
-	shell.AddCmd(&ishell.Cmd{
+	Shell.AddCmd(&ishell.Cmd{
 		Name: "listconstants",
 		Help: "list numeric constants available to the program",
 		Func: cmd_listconstants,
 	})
 
-	shell.AddCmd(&ishell.Cmd{
+	Shell.AddCmd(&ishell.Cmd{
 		Name: "set",
 		Help: "set <key> <value>",
 		Func: cmd_set,
 	})
 
-	shell.AddCmd(&ishell.Cmd{
+	Shell.AddCmd(&ishell.Cmd{
 		Name: "outputf",
 		Help: "set the output format",
 		Func: cmd_output,
@@ -37,7 +37,7 @@ func init() {
 		Func: cmd_colors,
 	}
 
-	shell.AddCmd(colors)
+	Shell.AddCmd(colors)
 
 }
 

@@ -12,6 +12,7 @@ import (
 type constant struct {
 	Value interface{} `json:"value"`
 	Desc  string      `json:"desc"`
+	Unit  string      `json:"unit"`
 }
 
 type constants map[string]constant

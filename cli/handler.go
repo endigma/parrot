@@ -53,7 +53,7 @@ func Handle(ctx *ishell.Context) {
 		case "all":
 			ctx.Printf("\n = %v\n", color_green_bold.Sprintf("0x%v", strconv.FormatInt(int64(answer.(float64)), 16)))
 			ctx.Printf(" = %v\n", color_green_bold.Sprintf("0b%v", strconv.FormatInt(int64(answer.(float64)), 2)))
-			ctx.Printf(" = %v\n\n", color_green_bold.Sprintf("%v", answer))
+			ctx.Printf(" = %v\n\n", color_green_bold.Sprintf("%.6v", answer))
 		default:
 			ctx.Printf("\n = %v\n\n", color_green_bold.Sprintf("%v", answer))
 		}
