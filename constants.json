@@ -1,4 +1,6 @@
 {
-    "pi": 3,
-    "pi but cool": 4
+    "pi": {
+        "value": 3.141592653589793,
+        "desc": "the ratio of a circle's circumference to its diameter"
+    }
 }
