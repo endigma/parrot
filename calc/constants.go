@@ -31,17 +31,25 @@ func (c constants) Get(name string) (interface{}, error) {
 var c constants = make(constants)
 
 func init() {
-	jsonFile, err := os.Open(utils.UserHomeDir() + "/.config/parrot/constants.json")
+	var jsonfile *os.File
+	var err error
+
+	for _, path := range []string{utils.UserHomeDir() + "/.config/parrot/constants.json", "constants.json"} {
+		jsonfile, err = os.Open(path)
+		if err == nil {
+			return
+		}
+	}
+
 	if err != nil {
-		jsonFile, err = os.Open("constants.json")
+
 		if err != nil {
 			return
 		}
 	}
 
-	defer jsonFile.Close()
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
+	defer jsonfile.Close()
+	byteValue, _ := ioutil.ReadAll(jsonfile)
 	json.Unmarshal(byteValue, &c)
 }
 
