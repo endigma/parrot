@@ -7,6 +7,7 @@ my goal is for parrot to be a multi-tool of sorts for command-line maths and com
 # current features
 
 - most basic maths
+- command history
 - live reloading config (courtesy of viper)
 - variables
 - constant system (poorly designed)
@@ -25,7 +26,7 @@ my goal is for parrot to be a multi-tool of sorts for command-line maths and com
 
 # libraries
 
-- spf13viper (here to stay)
+- spf13/viper (here to stay)
 - sirupsen/logrus (here to stay)
 - chzyer/readline (here to stay)
 - fatih/color (here to stay)

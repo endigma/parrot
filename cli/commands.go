@@ -36,13 +36,13 @@ func init() {
 		Help: "color info tool",
 		Handler: func(ctx *shella.Context) {
 			if len(ctx.Args) != 2 {
-				fmt.Println(utils.Color_red.Sprint("Invalid input, please use the format `utils.Colors <utils.Color>`"))
+				fmt.Println(utils.Color_red.Sprint("Invalid input, please use the format `color <color>`"))
 				return
 			}
 
 			color, err := colors.Parse(ctx.Args[1])
 			if err != nil {
-				fmt.Println(utils.Color_red.Sprint("Invalid input, please use the format `utils.Colors <utils.Color>`"))
+				fmt.Println(utils.Color_red.Sprint("Invalid input, please use the format `color <color>`"))
 				return
 			}
 
