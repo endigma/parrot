@@ -50,7 +50,7 @@ func init() {
 			fmt.Printf(" %s: %s\n", utils.Color_blue_bold.Sprint("RGB"), color.ToRGB())
 			fmt.Printf(" %s: %s\n", utils.Color_blue_bold.Sprint("RGBA"), color.ToRGBA())
 			fmt.Printf(" %s: %t\n", utils.Color_blue_bold.Sprint("Dark"), color.IsDark())
-			fmt.Printf(" %s: https://cya.cx/tools/utils.Colors.html?utils.Color=%s\n", utils.Color_blue_bold.Sprint("Preview"), color.ToRGBA())
+			fmt.Printf(" %s: https://cya.cx/tools/colors.html?color=%s\n", utils.Color_blue_bold.Sprint("Preview"), color.ToRGBA())
 		},
 	})
 
