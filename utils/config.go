@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"os"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -18,7 +20,22 @@ func init() {
 		if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
 			log.Fatal(err)
 		} else {
-			log.Warn("Config file not provided, defaults will be used.")
+			// Write default config
+
+			log.Warn("Config file not provided, writing default values to config.toml in your config directory")
+			_, err := os.Stat(UserHomeDir() + "/parrot/")
+
+			if os.IsNotExist(err) {
+				errDir := os.MkdirAll(UserHomeDir()+"/parrot/", 0755)
+				if errDir != nil {
+					log.Fatal(err)
+				}
+
+			}
+
+			_, err = os.Create(UserHomeDir() + "/parrot/config.toml")
+			CheckErr(err)
+			viper.WriteConfig()
 		}
 	} else {
 		viper.WatchConfig()

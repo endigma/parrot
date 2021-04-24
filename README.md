@@ -27,7 +27,9 @@ my goal is for parrot to be a multi-tool of sorts for command-line maths and com
 
 - spf13viper (here to stay)
 - sirupsen/logrus (here to stay)
+- chzyer/readline (here to stay)
 - fatih/color (here to stay)
 - go-playground/colors.v1 (will probably be removed, but its a small library used in a tool so eh?)
-- abiosoft/ishell (will be removed)
+
+# to deprecate
 - Knetic/govaluate (will be removed)

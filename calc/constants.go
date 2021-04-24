@@ -31,9 +31,13 @@ func (c constants) Get(name string) (interface{}, error) {
 var c constants = make(constants)
 
 func init() {
-	jsonFile, err := os.Open("constants.json")
-
-	utils.CheckErr(err)
+	jsonFile, err := os.Open(utils.UserHomeDir() + "/.config/parrot/constants.json")
+	if err != nil {
+		jsonFile, err = os.Open("constants.json")
+		if err != nil {
+			return
+		}
+	}
 
 	defer jsonFile.Close()
 	byteValue, _ := ioutil.ReadAll(jsonFile)
