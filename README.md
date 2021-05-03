@@ -4,6 +4,10 @@ parrot is a simple calculator in go currently using very little unique code. I w
 
 my goal is for parrot to be a multi-tool of sorts for command-line maths and computations. I've added a few tools for programmers/designers already, but I'd like these to be modular and plentiful, so I'll be integrating a plug-in system at some point. 
 
+# working on
+- custom math evaluator
+- custom parser
+
 # current features
 
 - most basic maths
