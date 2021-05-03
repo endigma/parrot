@@ -23,6 +23,7 @@ my goal is for parrot to be a multi-tool of sorts for command-line maths and com
 - more programmer tools
 - dynamic config tool
 - more config options
+- ip calculator: subnet, ip-binary
 
 # libraries
 
